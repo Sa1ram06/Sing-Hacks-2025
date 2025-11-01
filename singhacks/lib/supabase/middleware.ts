@@ -29,7 +29,7 @@ export async function updateSession(request: NextRequest) {
   const user = data?.claims;
 
   // ✅ Allow access to public routes even without Supabase login
-  const publicPaths = ["/", "/auth/login", "/dashboard"];
+  const publicPaths = ["/", "/auth/login", "/dashboard", "/transactions"];
 
   // If not logged in and trying to visit a non-public route → redirect to login
   if (!user && !publicPaths.some((path) => request.nextUrl.pathname.startsWith(path))) {
